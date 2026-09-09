@@ -1,0 +1,1 @@
+export const projects = [{ slug: 'emmett-till-monument', agency: 'National Park Service', project: 'Emmett Till and Mamie Till-Mobley National Monument', location: 'Chicago, Illinois', category: 'Federal', support: 'Federal site operations', scope: 'RAW Holdings currently manages federal site operations for the monument in partnership with the U.S. National Park Service.' }];

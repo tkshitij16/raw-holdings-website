@@ -1,0 +1,1 @@
+export function InnerHero({kicker,title,intro}:{kicker:string,title:string,intro:string}){return <section className="inner-hero"><div className="shell"><p className="eyebrow">{kicker}</p><h1>{title}</h1><p className="lede">{intro}</p></div></section>}

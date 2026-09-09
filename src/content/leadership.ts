@@ -1,0 +1,1 @@
+export const leadership = [{ name: 'Jameelah Mahdie', role: 'Co-Chief Executive Manager', focus: 'Vendor Operations & Program Management', initials: 'JM' },{ name: 'Sidney Vaughn', role: 'Co-Chief Executive Manager', focus: 'Compliance & Infrastructure Strategy', initials: 'SV' }];

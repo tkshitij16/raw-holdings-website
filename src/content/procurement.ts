@@ -1,0 +1,1 @@
+export const procurement = { credentials: [{ label: 'City of Chicago', value: 'MBE' },{ label: 'City of Chicago', value: 'WBE' },{ label: 'SAM.gov', value: 'Registered' },{ label: 'CAGE', value: '9MBN1' },{ label: 'UEI', value: 'GHWSVQK72EL2' }] };

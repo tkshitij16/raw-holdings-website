@@ -1,0 +1,22 @@
+# Content approval checklist
+
+- [ ] Company name
+- [ ] Logo
+- [ ] Brand colors
+- [ ] Phone
+- [ ] Address
+- [ ] Email addresses
+- [ ] Leadership names
+- [ ] Leadership roles
+- [ ] MBE
+- [ ] WBE
+- [ ] SAM.gov
+- [ ] CAGE
+- [ ] UEI
+- [ ] Capability descriptions
+- [ ] NPS project wording
+- [ ] NPS project media
+- [ ] General photography
+- [ ] Capability statement
+- [ ] Contact form destination
+- [ ] Privacy copy

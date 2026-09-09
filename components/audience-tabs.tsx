@@ -1,0 +1,3 @@
+'use client';
+import { Tabs,TabsContent,TabsList,TabsTrigger } from '@/components/ui/tabs'; import { audiences } from '@/src/content/audiences';
+export function AudienceTabs(){return <Tabs defaultValue={audiences[0].id} orientation="vertical" className="audience-tabs"><TabsList variant="line">{audiences.map((a,i)=><TabsTrigger key={a.id} value={a.id}><span>0{i+1}</span>{a.label}</TabsTrigger>)}</TabsList><div className="audience-panels">{audiences.map(a=><TabsContent key={a.id} value={a.id}><p className="meta">RELEVANCE / {a.label}</p><p className="audience-copy">{a.text}</p><span className="line-arrow" aria-hidden="true">RAW / COORDINATED DELIVERY <b>→</b></span></TabsContent>)}</div></Tabs>}
