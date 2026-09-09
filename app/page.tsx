@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { PageShell } from '@/components/site-shell';
 import { CapabilityStory } from '@/components/capability-story';
 import { AudienceTabs } from '@/components/audience-tabs';
+import { HeroMapScene } from '@/components/hero-map-scene';
 import { procurement } from '@/src/content/procurement';
 import { projects } from '@/src/content/projects';
 import { leadership } from '@/src/content/leadership';
@@ -33,6 +34,7 @@ export default function Home() {
           <div className="hero-map" aria-hidden="true">
             <img src={media.heroMap.src} alt="" />
           </div>
+          <HeroMapScene />
           <div className="shell hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">CHICAGO / IL · COORDINATED DELIVERY</p>
@@ -56,19 +58,11 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <figure className="hero-media">
-              <img src={media.hero.src} alt={media.hero.alt} />
-              <figcaption>
-                <span>41.8837° N / 87.6324° W</span>
-                <a
-                  href="https://commons.wikimedia.org/wiki/File:Chicago_Skyline_in_September_2023_(cropped).jpg"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  PHOTO: THEWXRESEARCHER / CC BY-SA 4.0
-                </a>
-              </figcaption>
-            </figure>
+          </div>
+          <div className="hero-motion-note" aria-hidden="true">
+            <span>SCROLL</span>
+            <i />
+            <span>SHIFT PERSPECTIVE</span>
           </div>
         </section>
         <section className="credential-strip">
