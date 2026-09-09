@@ -1,3 +1,247 @@
-import Link from 'next/link'; import { PageShell } from '@/components/site-shell'; import { CapabilityStory } from '@/components/capability-story'; import { AudienceTabs } from '@/components/audience-tabs'; import { procurement } from '@/src/content/procurement'; import { projects } from '@/src/content/projects'; import { leadership } from '@/src/content/leadership'; import { media } from '@/src/content/media';
-const process=[['01','ONBOARD & QUALIFY','Organize subcontractor and vendor onboarding information.'],['02','TRACK & VERIFY','Track participation requirements and supporting documentation.'],['03','COORDINATE SITE SUPPORT','Coordinate schedules and recurring operational activities.'],['04','DOCUMENT & REPORT','Maintain reporting and operational records.']];
-export default function Home(){const project=projects[0];return <PageShell><main id="main"><section className="hero"><div className="shell hero-grid"><div className="hero-copy"><p className="eyebrow">CHICAGO / PUBLIC-SECTOR INFRASTRUCTURE SUPPORT</p><h1>Infrastructure support<br/>for public-sector projects.</h1><p className="lede">RAW Holdings supports general contractors, government agencies and facilities teams with vendor coordination, compliance oversight, site operations and project administration.</p><div className="actions"><Link className="button" href="/capabilities">View Capabilities <span>↗</span></Link><Link className="text-link" href="/contact">Discuss a Project <span>→</span></Link></div></div><figure className="hero-media"><img src={media.hero.src} alt={media.hero.alt}/><figcaption><span>41.8781° N / 87.6298° W</span><span>EDITORIAL DEMO MEDIA</span></figcaption></figure></div></section><section className="credential-strip"><div className="shell credentials">{procurement.credentials.map(c=><div key={c.label+c.value}><span>{c.label}</span><strong>{c.value}</strong></div>)}</div></section><section className="section capabilities"><div className="shell"><div className="section-head"><p className="meta">01 / CAPABILITIES</p><h2>Support across the operational side of a project.</h2><p>RAW Holdings supports the coordination, documentation and site activities that sit between project requirements and day-to-day execution.</p></div><CapabilityStory/></div></section><section className="section process"><div className="shell"><div className="section-head"><p className="meta">02 / PROJECT SUPPORT</p><h2>A clear support path from onboarding to reporting.</h2></div><div className="process-line">{process.map(([n,t,d])=><div key={n} className="process-step"><span>{n}</span><h3>{t}</h3><p>{d}</p></div>)}</div></div></section><section className="section audience"><div className="shell"><div className="section-head"><p className="meta">03 / WHO WE SUPPORT</p><h2>Built for teams responsible for public projects and facilities.</h2></div><AudienceTabs/></div></section><section className="section project-feature"><div className="shell"><div className="section-head"><p className="meta">04 / PAST PERFORMANCE</p><h2>Federal site operations experience.</h2></div><div className="project-media"><img src={media.project.src} alt={media.project.alt}/><span>PROJECT MEDIA — CLIENT APPROVAL PENDING</span></div><div className="project-info"><div><p className="meta">PROJECT</p><h3>{project.project}</h3></div>{[['AGENCY',project.agency],['LOCATION',project.location],['CATEGORY',project.category],['SUPPORT',project.support]].map(([a,b])=><div key={a}><p className="meta">{a}</p><p>{b}</p></div>)}</div><Link className="text-link" href="/past-performance">View Past Performance <span>→</span></Link></div></section><section className="section procurement"><div className="shell"><div className="section-head"><p className="meta">05 / PROCUREMENT</p><h2>Public-sector ready.</h2><p>Key registration and certification information for teams evaluating RAW Holdings as a project or teaming partner.</p></div><div className="dossier"><div><p className="meta">CERTIFICATIONS</p>{[['Minority Business Enterprise','City of Chicago'],['Women Business Enterprise','City of Chicago'],['SAM.gov','Registered']].map(([a,b])=><div className="dossier-row" key={a}><strong>{a}</strong><span>{b}</span></div>)}</div><div><p className="meta">IDENTIFIERS</p>{[['CAGE','9MBN1'],['UEI','GHWSVQK72EL2']].map(([a,b])=><div className="dossier-row" key={a}><strong>{a}</strong><span>{b}</span></div>)}</div></div><div className="actions"><Link className="button dark" href="/capability-statement">View Capability Statement <span>↗</span></Link><Link className="text-link" href="/contact">Discuss a Project <span>→</span></Link></div></div></section><section className="section leadership"><div className="shell"><div className="section-head"><p className="meta">06 / LEADERSHIP</p><h2>Experienced direction across operations and compliance.</h2></div><div className="leaders">{leadership.map(l=><article key={l.name}><div className="initials">{l.initials}</div><div><h3>{l.name}</h3><p>{l.role}</p><p className="meta">{l.focus}</p></div></article>)}</div><Link className="text-link" href="/about">About RAW Holdings <span>→</span></Link></div></section><section className="contact-cta"><div className="shell"><p className="meta">07 / CONTACT</p><h2>Have a project that needs vendor,<br/>compliance or operational support?</h2><p>Tell us what you are working on and where RAW Holdings may fit.</p><Link className="button light" href="/contact">Discuss a Project <span>↗</span></Link></div></section></main></PageShell>}
+import Link from 'next/link';
+import { PageShell } from '@/components/site-shell';
+import { CapabilityStory } from '@/components/capability-story';
+import { AudienceTabs } from '@/components/audience-tabs';
+import { procurement } from '@/src/content/procurement';
+import { projects } from '@/src/content/projects';
+import { leadership } from '@/src/content/leadership';
+import { media } from '@/src/content/media';
+const process = [
+  [
+    '01',
+    'ONBOARD & QUALIFY',
+    'Organize subcontractor and vendor onboarding information.',
+  ],
+  [
+    '02',
+    'TRACK & VERIFY',
+    'Track participation requirements and supporting documentation.',
+  ],
+  [
+    '03',
+    'COORDINATE SITE SUPPORT',
+    'Coordinate schedules and recurring operational activities.',
+  ],
+  ['04', 'DOCUMENT & REPORT', 'Maintain reporting and operational records.'],
+];
+export default function Home() {
+  const project = projects[0];
+  return (
+    <PageShell>
+      <main id="main">
+        <section className="hero">
+          <div className="hero-map" aria-hidden="true">
+            <img src={media.heroMap.src} alt="" />
+          </div>
+          <div className="shell hero-grid">
+            <div className="hero-copy">
+              <p className="eyebrow">CHICAGO / IL · COORDINATED DELIVERY</p>
+              <h1>
+                RAW HOLDINGS <span>LLC</span>
+              </h1>
+              <p className="hero-proposition">
+                Infrastructure support for public-sector projects.
+              </p>
+              <p className="lede">
+                RAW Holdings supports general contractors, government agencies
+                and facilities teams with vendor coordination, compliance
+                oversight, site operations and project administration.
+              </p>
+              <div className="actions">
+                <Link className="button" href="/capabilities">
+                  View Capabilities <span>↗</span>
+                </Link>
+                <Link className="text-link" href="/contact">
+                  Discuss a Project <span>→</span>
+                </Link>
+              </div>
+            </div>
+            <figure className="hero-media">
+              <img src={media.hero.src} alt={media.hero.alt} />
+              <figcaption>
+                <span>41.8837° N / 87.6324° W</span>
+                <a
+                  href="https://commons.wikimedia.org/wiki/File:Chicago_Skyline_in_September_2023_(cropped).jpg"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  PHOTO: THEWXRESEARCHER / CC BY-SA 4.0
+                </a>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+        <section className="credential-strip">
+          <div className="shell credentials">
+            {procurement.credentials.map((c) => (
+              <div key={c.label + c.value}>
+                <span>{c.label}</span>
+                <strong>{c.value}</strong>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className="section capabilities">
+          <div className="shell">
+            <div className="section-head">
+              <p className="meta">01 / CAPABILITIES</p>
+              <h2>Support across the operational side of a project.</h2>
+              <p>
+                RAW Holdings supports the coordination, documentation and site
+                activities that sit between project requirements and day-to-day
+                execution.
+              </p>
+            </div>
+            <CapabilityStory />
+          </div>
+        </section>
+        <section className="section process">
+          <div className="shell">
+            <div className="section-head">
+              <p className="meta">02 / PROJECT SUPPORT</p>
+              <h2>A clear support path from onboarding to reporting.</h2>
+            </div>
+            <div className="process-line">
+              {process.map(([n, t, d]) => (
+                <div key={n} className="process-step">
+                  <span>{n}</span>
+                  <h3>{t}</h3>
+                  <p>{d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="section audience">
+          <div className="shell">
+            <div className="section-head">
+              <p className="meta">03 / WHO WE SUPPORT</p>
+              <h2>
+                Built for teams responsible for public projects and facilities.
+              </h2>
+            </div>
+            <AudienceTabs />
+          </div>
+        </section>
+        <section className="section project-feature">
+          <div className="shell">
+            <div className="section-head">
+              <p className="meta">04 / PAST PERFORMANCE</p>
+              <h2>Federal site operations experience.</h2>
+            </div>
+            <div className="project-media">
+              <img src={media.project.src} alt={media.project.alt} />
+              <span>PROJECT MEDIA — CLIENT APPROVAL PENDING</span>
+            </div>
+            <div className="project-info">
+              <div>
+                <p className="meta">PROJECT</p>
+                <h3>{project.project}</h3>
+              </div>
+              {[
+                ['AGENCY', project.agency],
+                ['LOCATION', project.location],
+                ['CATEGORY', project.category],
+                ['SUPPORT', project.support],
+              ].map(([a, b]) => (
+                <div key={a}>
+                  <p className="meta">{a}</p>
+                  <p>{b}</p>
+                </div>
+              ))}
+            </div>
+            <Link className="text-link" href="/past-performance">
+              View Past Performance <span>→</span>
+            </Link>
+          </div>
+        </section>
+        <section className="section procurement">
+          <div className="shell">
+            <div className="section-head">
+              <p className="meta">05 / PROCUREMENT</p>
+              <h2>Public-sector ready.</h2>
+              <p>
+                Key registration and certification information for teams
+                evaluating RAW Holdings as a project or teaming partner.
+              </p>
+            </div>
+            <div className="dossier">
+              <div>
+                <p className="meta">CERTIFICATIONS</p>
+                {[
+                  ['Minority Business Enterprise', 'City of Chicago'],
+                  ['Women Business Enterprise', 'City of Chicago'],
+                  ['SAM.gov', 'Registered'],
+                ].map(([a, b]) => (
+                  <div className="dossier-row" key={a}>
+                    <strong>{a}</strong>
+                    <span>{b}</span>
+                  </div>
+                ))}
+              </div>
+              <div>
+                <p className="meta">IDENTIFIERS</p>
+                {[
+                  ['CAGE', '9MBN1'],
+                  ['UEI', 'GHWSVQK72EL2'],
+                ].map(([a, b]) => (
+                  <div className="dossier-row" key={a}>
+                    <strong>{a}</strong>
+                    <span>{b}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="actions">
+              <Link className="button dark" href="/capability-statement">
+                View Capability Statement <span>↗</span>
+              </Link>
+              <Link className="text-link" href="/contact">
+                Discuss a Project <span>→</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+        <section className="section leadership">
+          <div className="shell">
+            <div className="section-head">
+              <p className="meta">06 / LEADERSHIP</p>
+              <h2>Experienced direction across operations and compliance.</h2>
+            </div>
+            <div className="leaders">
+              {leadership.map((l) => (
+                <article key={l.name}>
+                  <div className="initials">{l.initials}</div>
+                  <div>
+                    <h3>{l.name}</h3>
+                    <p>{l.role}</p>
+                    <p className="meta">{l.focus}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <Link className="text-link" href="/about">
+              About RAW Holdings <span>→</span>
+            </Link>
+          </div>
+        </section>
+        <section className="contact-cta">
+          <div className="shell">
+            <p className="meta">07 / CONTACT</p>
+            <h2>
+              Have a project that needs vendor,
+              <br />
+              compliance or operational support?
+            </h2>
+            <p>
+              Tell us what you are working on and where RAW Holdings may fit.
+            </p>
+            <Link className="button light" href="/contact">
+              Discuss a Project <span>↗</span>
+            </Link>
+          </div>
+        </section>
+      </main>
+    </PageShell>
+  );
+}
