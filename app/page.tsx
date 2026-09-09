@@ -36,7 +36,9 @@ export default function Home() {
           <div className="shell hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">CHICAGO / IL · COORDINATED DELIVERY</p>
-              <h1>RAW HOLDINGS</h1>
+              <h1>
+                RAW HOLDINGS <span>LLC</span>
+              </h1>
               <p className="hero-proposition">
                 Infrastructure support for public-sector projects.
               </p>
@@ -57,8 +59,14 @@ export default function Home() {
             <figure className="hero-media">
               <img src={media.hero.src} alt={media.hero.alt} />
               <figcaption>
-                <span>41.8781° N / 87.6298° W</span>
-                <span>CHICAGO / SPRING–SUMMER</span>
+                <span>41.8837° N / 87.6324° W</span>
+                <a
+                  href="https://commons.wikimedia.org/wiki/File:Chicago_Skyline_in_September_2023_(cropped).jpg"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  PHOTO: THEWXRESEARCHER / CC BY-SA 4.0
+                </a>
               </figcaption>
             </figure>
           </div>

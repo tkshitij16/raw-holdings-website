@@ -93,19 +93,16 @@ textarea {
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  width: fit-content;
 }
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  border: 1px solid currentColor;
-  font-family: var(--font-geist-mono);
-  font-size: 0.7rem;
+.brand-logo {
+  width: clamp(190px, 17vw, 250px);
+  height: 50px;
+  object-fit: contain;
+  object-position: left center;
+}
+.brand-logo-inverse {
+  filter: invert(1) grayscale(1) brightness(1.6);
 }
 .site-header nav {
   display: flex;
@@ -234,6 +231,15 @@ textarea {
   color: var(--paper);
   text-shadow: 0 8px 44px rgba(0, 0, 0, 0.38);
 }
+.hero h1 span {
+  display: inline-block;
+  margin-left: 0.22em;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.17em;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  vertical-align: top;
+}
 .hero-proposition {
   max-width: 690px;
   margin: 0 0 28px;
@@ -272,7 +278,9 @@ textarea {
   position: relative;
   overflow: hidden;
   background: var(--graphite);
-  min-height: 600px;
+  min-height: 0;
+  aspect-ratio: 16 / 10;
+  align-self: center;
   border: 1px solid rgba(242, 239, 232, 0.42);
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.22);
 }
@@ -287,6 +295,7 @@ textarea {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   filter: saturate(0.92) contrast(1.02);
 }
 .hero-media figcaption {
@@ -302,6 +311,13 @@ textarea {
   color: var(--paper);
   font: 11px var(--font-geist-mono);
   letter-spacing: 0.09em;
+}
+.hero-media figcaption a {
+  text-align: right;
+}
+.hero-media figcaption a:hover,
+.hero-media figcaption a:focus-visible {
+  color: #d4b477;
 }
 .credential-strip {
   background: var(--ink);
