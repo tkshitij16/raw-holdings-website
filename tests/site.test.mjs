@@ -21,13 +21,12 @@ test('homepage follows required content sequence', () => {
     last = next;
   }
 });
-test('hero leads with RAW Holdings and uses text-free Chicago map and real lakefront photography', () => {
+test('hero leads with RAW Holdings and uses a text-free Chicago map', () => {
   const page = read('app/page.tsx');
   assert.match(page, /RAW HOLDINGS/);
   assert.match(page, /hero-map/);
-  const media = read('src/content/media.ts');
-  assert.match(media, /chicago-map-no-text\.png/);
-  assert.match(media, /chicago-skyline-lake-michigan\.jpg/);
+  assert.match(read('src/content/media.ts'), /chicago-map-no-text\.png/);
+  assert.doesNotMatch(page, /hero-media/);
 });
 test('primary routes exist in navigation and footer', () => {
   const nav = read('src/content/navigation.ts');
@@ -49,8 +48,11 @@ test('all capability anchors are rendered', () => {
   ])
     assert.match(data, new RegExp(`id: '${id}'`));
 });
-test('prohibited 3D dependencies are absent', () => {
+test('Three.js hero scene responds to scroll and respects reduced motion', () => {
   const pkg = JSON.parse(read('package.json'));
-  for (const name of ['three', '@react-three/fiber', '@react-three/drei'])
-    assert.equal(pkg.dependencies?.[name], undefined);
+  const scene = read('components/hero-map-scene.tsx');
+  assert.equal(typeof pkg.dependencies?.three, 'string');
+  assert.match(scene, /addEventListener\('scroll'/);
+  assert.match(scene, /prefers-reduced-motion/);
+  assert.match(scene, /camera\.position\.set/);
 });
